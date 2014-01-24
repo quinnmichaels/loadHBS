@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>loadHBS</title>
+</head>
+<body>
+
+<div class="hbs-wrapper"></div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.js"></script>
+<script src="loadHBS.js"></script>
+
+<script>
+     $(function() {
+		loadHBS.template({
+	     	selector: '.hbs-wrapper',
+	     	template: 'main',
+	     	data: {
+			 	title: 'Handlebars Template Loader',
+			 	text: 'The handlebars template was successful'
+	     	},
+	     	type: 'insert',
+	     	callback: function() {
+		     	console.log('template loaded');
+	     	}
+		});
+     });
+</script>
+</body>
+</html>
