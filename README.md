@@ -1,7 +1,7 @@
 loadHBS
 =======
 
-##SUMMARY:
+###SUMMARY:
 loadJBS is a JavaScript library for loading handlebars templates in to a jQuery selector.
 
 
