@@ -1,20 +1,20 @@
 loadHBS
 =======
 
-#SUMMARY:
+##SUMMARY:
 	loadJBS is a JavaScript library for loading handlebars templates in to a jQuery selector.
 
 
-###AUTHOR:
+#####AUTHOR:
 	Quinn Michaels
 
 
-##REQUIRES:
+###REQUIRES:
 	-jQuery				//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js
 	-Handlebars			//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.js
 
 
-##CONSTANTS:
+###CONSTANTS:
 
 	_path		DEFAULT: ''		ROOT PATH TO HANDLEBARS TEMPLATES
 	_extension	DEFAULT: .hbs	FILE EXTENSION OF YOUR HANDLEBARS TEMPLATES.
@@ -22,7 +22,7 @@ loadHBS
 ***********************************************************************
 Constants can be set at time of loading or set in the conf object:
 ***********************************************************************
-###USAGE EXAMPLE:
+####USAGE EXAMPLE:
 ```javascript
 loadHBS._path = '/custom/path/';
 loadHBS._extension = '.handlebars';
@@ -30,7 +30,7 @@ loadHBS.template({*conf object*})
 ```
 ***********************************************************************
 
-##CONF OBJECT:
+###CONF OBJECT:
 
 	type:		insert | append | prepend
 
@@ -49,7 +49,7 @@ loadHBS.template({*conf object*})
 				YOU INITIATE EVENT HANDLERS THAT MIGHT BE ASSOCIATED WITH A SPECIFIC TEMPLATE.
 
 ***********************************************************************
-###USAGE EXAMPLE
+####USAGE EXAMPLE
 ```javascript
 loadHBS.template({
  	selector: '%CSS SELECTOR%',
