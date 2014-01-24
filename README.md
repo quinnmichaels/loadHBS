@@ -59,6 +59,8 @@ loadHBS.template({
 	 	text: '%HANDLEBARS TEXT%'
  	},
  	type: 'insert|append|prepend',
+ 	path: '%CUSTOM PATH%',			// OPTIONAL
+ 	extension: '%EXTENSION%',		// OPTIONAL
  	callback: function() {
      	// template has loaded and you can inset your event handlers
  	}
