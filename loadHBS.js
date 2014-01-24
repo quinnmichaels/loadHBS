@@ -7,10 +7,9 @@ var loadHBS = {
 	_path: '',
 	_extension: '.hbs',
 	template: function(conf) {
-		if (typeof conf !== 'object') throw 'Config must be an object';	// validate conf object
-		if (conf.path) this._path = conf.path;							// set custom path
-		if (conf.extension) this._extension = conf.extension;			// set custom extension
-
+		if (typeof conf !== 'object') { throw 'Config must be an object'; }	// validate conf object
+		if (conf.path) { this._path = conf.path; }							// set custom path
+		if (conf.extension) { this._extension = conf.extension; }			// set custom extension
 
 		$.ajax({
 			url: this._path + conf.template + this._extension,
@@ -20,8 +19,6 @@ var loadHBS = {
 					_compile = Handlebars.compile(data),
 					_template = _compile(conf.data);
 
-
-				console.log(_template);
 				switch (conf.type) {
 					case 'append':
 						_s.append(_template);
@@ -31,7 +28,6 @@ var loadHBS = {
 						_s.prepend(_template);
 						break;
 
-					case 'insert':
 					default:
 						_s.html(_template);
 						break;
@@ -40,4 +36,4 @@ var loadHBS = {
 			complete: typeof conf.callback === 'function' ? conf.callback : false
 		});
 	}
-}
+};
