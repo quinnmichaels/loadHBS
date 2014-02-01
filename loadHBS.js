@@ -9,11 +9,13 @@
 		if (typeof conf !== 'object') { throw 'Config must be an object'; }	// validate conf object
 		if (!conf.template) { throw 'Template parameter required'; }
 		if (!conf.data) { throw 'Data parameter required'; }
-		if (_hbsPath) { _path = _hbsPath}
+
 		var _this 	= $(this),
 			_type 	= 'insert',
 			_path 	= '',
 			_ext 	= '.hbs';
+
+		if (_hbsPath) { _path = _hbsPath; }
 
 		if (conf.path) { _path = conf.path; }							// set custom path
 		if (conf.ext) { _ext = conf.ext; }			// set custom extension
