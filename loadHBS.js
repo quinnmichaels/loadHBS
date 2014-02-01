@@ -2,6 +2,8 @@
 	READ THE README... IT'S WRITTEN FOR A REASON.  THANKS!!!
 */
 
+
+
 (function ($) {
 	$.fn.loadHBS = function(conf, callback) {
 		if (typeof conf !== 'object') { throw 'Config must be an object'; }	// validate conf object
