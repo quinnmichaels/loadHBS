@@ -2,38 +2,47 @@
 	READ THE README... IT'S WRITTEN FOR A REASON.  THANKS!!!
 */
 
-
-var loadHBS = {
-	_path: '',
-	_extension: '.hbs',
-	template: function(conf) {
+(function ($) {
+	$.fn.loadHBS = function(conf, callback) {
 		if (typeof conf !== 'object') { throw 'Config must be an object'; }	// validate conf object
-		if (conf.path) { this._path = conf.path; }							// set custom path
-		if (conf.extension) { this._extension = conf.extension; }			// set custom extension
+		if (!conf.template) { throw 'Template parameter required'; }
+		if (!conf.data) { throw 'Data parameter required'; }
+
+		var _this 	= $(this),
+			_type 	= 'insert',
+			_path 	= '',
+			_ext 	= '.hbs';
+
+		if (conf.path) { _path = conf.path; }							// set custom path
+		if (conf.ext) { _ext = conf.ext; }			// set custom extension
+		if (conf.type) { _type = conf.type }
 
 		$.ajax({
-			url: this._path + conf.template + this._extension,
+			url: _path + conf.template + _ext,
 			cache: false,
 			success: function (data) {
-				var _s = $(conf.selector),
-					_compile = Handlebars.compile(data),
+				var _compile = Handlebars.compile(data),
 					_template = _compile(conf.data);
 
-				switch (conf.type) {
+				switch (_type) {
 					case 'append':
-						_s.append(_template);
+						_this.append(_template);
 						break;
 
 					case 'prepend':
-						_s.prepend(_template);
+						_this.prepend(_template);
 						break;
 
 					default:
-						_s.html(_template);
+						_this.html(_template);
 						break;
 				}
 			},
-			complete: typeof conf.callback === 'function' ? conf.callback : false
+			complete: typeof callback === 'function' ? callback : false
 		});
-	}
-};
+
+	};
+
+})( jQuery );
+
+

@@ -15,17 +15,14 @@
 
 <script>
      $(function() {
-		loadHBS.template({
-	     	selector: '.hbs-wrapper',
+		$('.hbs-wrapper').loadHBS({
 	     	template: 'main',
 	     	data: {
-			 	title: 'Handlebars Template Loader',
-			 	text: 'The handlebars template was successful'
-	     	},
-	     	type: 'insert',
-	     	callback: function() {
-		     	console.log('template loaded');
-	     	}
+			 		title: 'Handlebars Template Loader',
+			 		text: 'The handlebars template was successful'
+			 	}
+		 	}, function() {
+				console.log('template loaded')
 		});
      });
 </script>
