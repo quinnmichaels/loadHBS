@@ -12,10 +12,8 @@
 
 		var _this 	= $(this),
 			_type 	= 'insert',
-			_path 	= '',
+			_path 	= 'templates/',
 			_ext 	= '.hbs';
-
-		if (_hbsPath) { _path = _hbsPath; }
 
 		if (conf.path) { _path = conf.path; }							// set custom path
 		if (conf.ext) { _ext = conf.ext; }			// set custom extension
@@ -23,6 +21,7 @@
 
 		$.ajax({
 			url: _path + conf.template + _ext,
+            // Caching should be turned on when pushing to dev environments. 
 			cache: false,
 			success: function (data) {
 				var _compile = Handlebars.compile(data),
